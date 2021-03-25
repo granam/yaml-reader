@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Granam\YamlReader;
 
@@ -27,7 +26,7 @@ class YamlReader extends StrictObject implements \ArrayAccess
         if (!$yamlContent) {
             return [];
         }
-        $values = \yaml_parse($yamlContent);
+        $values = yaml_parse($yamlContent);
         if ($values !== false) {
             return $values;
         }

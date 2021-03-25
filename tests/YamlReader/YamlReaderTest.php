@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Granam\Tests\YamlReader;
 
@@ -28,10 +27,10 @@ YAML
 
     /**
      * @test
-     * @expectedException \Granam\YamlReader\Exceptions\YamlObjectContentIsReadOnly
      */
     public function I_can_not_set_value_on_yaml_object(): void
     {
+        $this->expectException(\Granam\YamlReader\Exceptions\YamlObjectContentIsReadOnly::class);
         try {
             $yaml = new YamlReader(<<<YAML
 foo: bar
@@ -42,16 +41,15 @@ YAML
         } catch (\Exception $exception) {
             self::fail('No exception expected so far: ' . $exception->getMessage());
         }
-        /** @noinspection OnlyWritesOnParameterInspection */
         $yaml['foo'] = 'bar';
     }
 
     /**
      * @test
-     * @expectedException \Granam\YamlReader\Exceptions\YamlObjectContentIsReadOnly
      */
     public function I_can_not_remove_value_on_yaml_object(): void
     {
+        $this->expectException(\Granam\YamlReader\Exceptions\YamlObjectContentIsReadOnly::class);
         try {
             $yaml = new YamlReader(<<<YAML
 foo: bar
@@ -62,7 +60,6 @@ YAML
         } catch (\Exception $exception) {
             self::fail('No exception expected so far: ' . $exception->getMessage());
         }
-        /** @noinspection PhpUndefinedVariableInspection */
         unset($yaml['foo']);
     }
 

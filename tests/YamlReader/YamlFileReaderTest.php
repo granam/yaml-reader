@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Granam\Tests\YamlReader;
 
@@ -34,10 +33,10 @@ class YamlFileReaderTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Granam\YamlReader\Exceptions\YamlObjectContentIsReadOnly
      */
     public function I_can_not_set_value_on_yaml_object(): void
     {
+        $this->expectException(\Granam\YamlReader\Exceptions\YamlObjectContentIsReadOnly::class);
         try {
             $yamlFile = $this->createYamlFile([]);
             $yaml = new YamlFileReader($yamlFile);
@@ -50,10 +49,10 @@ class YamlFileReaderTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Granam\YamlReader\Exceptions\YamlObjectContentIsReadOnly
      */
     public function I_can_not_remove_value_on_yaml_object(): void
     {
+        $this->expectException(\Granam\YamlReader\Exceptions\YamlObjectContentIsReadOnly::class);
         try {
             $yamlFile = $this->createYamlFile(['foo' => 'bar']);
             $yaml = new YamlFileReader($yamlFile);
