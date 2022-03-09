@@ -16,9 +16,9 @@ class YamlFileReader extends YamlReader
      */
     private function fetchContent(string $yamlFile): string
     {
-        $yamlContent = \file_get_contents($yamlFile);
+        $yamlContent = file_get_contents($yamlFile);
         if ($yamlContent === false) {
-            throw new Exceptions\CanNotReadYamlFile("Can not parse content '{$yamlContent}' of YAML file '{$yamlFile}'");
+            throw new Exceptions\CanNotReadYamlFile("Can not parse content of YAML file '{$yamlFile}'");
         }
 
         return $yamlContent;

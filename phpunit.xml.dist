@@ -4,7 +4,7 @@
          bootstrap="./tests/tests_bootstrap.php" colors="true">
     <coverage>
         <include>
-            <directory>./YamlReader</directory>
+            <directory>./src</directory>
         </include>
     </coverage>
     <testsuites>

@@ -6,10 +6,8 @@ use Granam\Strict\Object\StrictObject;
 
 class YamlReader extends StrictObject implements \ArrayAccess
 {
-    /** @var string */
-    private $yamlContent;
-    /** @var array */
-    private $values;
+    private ?string $yamlContent = null;
+    private array $values;
 
     public function __construct(string $yamlContent)
     {

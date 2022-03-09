@@ -1,7 +1,7 @@
 <?php
 namespace Granam\YamlReader\Exceptions;
 
-interface Exception
+interface Logic extends Exception
 {
 
 }
